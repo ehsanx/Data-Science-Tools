@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Module 13: Exploring Date/Time Data with datetime &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module13_ExploringDateTimeData';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Module 12: TableOne Package in Python" href="Module12_TableOne.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Module0_JupyterGoogleCollab.html">Module 0: Jupyter &amp; Google Collab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module1_VSCode.html">Module 1: VSCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module2_WhyVisualizeData.html">Module 2: Why Visualize Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module3_VisualEncodingChannels.html">Module 3: Visual Encoding Channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module4_VisualizingDistributions.html">Module 4: Visualizing Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module5_EDA.html">Module 5: Exploratory Data Analysis and 2D Categorical Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module6_DesigningPlotsforCommunication.html">Module 6: Designing Plots for Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module7_ChartInteractivity.html">Module 7: Chart Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module8_FileNamesProjectOrganizationVirtualEnvironments.html">Module 8: File Names, Project Organization, Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module9_JupyterBook.html">Module 9: Jupyter Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module10_GitUsingGithubDesktop.html">Module 10: Git Using Github Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module11_GithubBranches.html">Module 11: Github Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module12_TableOne.html">Module 12: TableOne Package in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Module 13: Exploring Date/Time Data with datetime</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModule13_ExploringDateTimeData.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Module13_ExploringDateTimeData.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Module 13: Exploring Date/Time Data with datetime</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings">Working with Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-date-attributes-via-basic-arithmetic">Manipulating Date Attributes via Basic Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-date-using-attributes">Loading Date Using Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-more-information-from-date">Obtaining More Information from Date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datetime-objects">Working with datetime Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datetimes-time-object">Working with datetimes’ time object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-24-hour-time-to-12-hour-time">Converting Between 24 Hour Time to 12 Hour Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-date-objects-with-time-objects-to-create-a-datetime-object">Combining date Objects with time Objects to Create a datetime Object</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="module-13-exploring-date-time-data-with-datetime">
+<h1>Module 13: Exploring Date/Time Data with datetime<a class="headerlink" href="#module-13-exploring-date-time-data-with-datetime" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;today is &quot;</span> <span class="p">,</span> <span class="n">today</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;day:&quot;</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;month:&quot;</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;year:&quot;</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>today is  2024-08-13
+day: 13
+month: 8
+year: 2024
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, sometimes we may not always want our dates to be represented by integers.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A </span><span class="si">%d</span><span class="s2"> %B %Y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tuesday 13 August 2024&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can see that the output we’ve given is the name of the day (in full English), the day (as a number), the name of the month (in full English) and the value of the current year (as a number).</p>
+<p>We can also experiment with different format codes for our <code class="docutils literal notranslate"><span class="pre">strftime</span></code> method. Let’s see what happens in we were to use all lowercase values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> </span><span class="si">%d</span><span class="s2"> %b %y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tue 13 Aug 24&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="working-with-strings">
+<h2>Working with Strings<a class="headerlink" href="#working-with-strings" title="Link to this heading">#</a></h2>
+<p>As all of these date time values are strings, we can add all sorts of things we wanted inbetween them.</p>
+<p>Let’s say I wanted to add some commas and some English inbetween the output I’m producing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A, </span><span class="si">%d</span><span class="s2">th of %B %Y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Tuesday, 13th of August 2024&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulating-date-attributes-via-basic-arithmetic">
+<h2>Manipulating Date Attributes via Basic Arithmetic<a class="headerlink" href="#manipulating-date-attributes-via-basic-arithmetic" title="Link to this heading">#</a></h2>
+<p>Using arithmetic with Python’s <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module allows for the manipulation and calculation of dates and times with ease.</p>
+<p>By importing the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module, you can perform operations like adding or subtracting days, hours, minutes, or even seconds from a given date and time.</p>
+<p>This feature is great for tasks like scheduling, logging events, and managing time-based data.</p>
+<p>For example, let’s take a look at how we can look one year into advance.</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">today</span></code> object that was created earlier, and call the <code class="docutils literal notranslate"><span class="pre">replace</span></code> function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">replace</span></code> function essentially gives the ability to override the current value.</p>
+<p>Inside of the brackets, we can specify what we want to replace with. In this case, we are replacing the year value, by taking the <code class="docutils literal notranslate"><span class="pre">.year</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">today</span></code> variable, and adding 1 to it.</p>
+<p>This should take us into the next year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_year</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">next_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date(2025, 8, 13)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Moreover, we can also obtain the difference between two dates, simply by using subtraction.</p>
+<p>For example, let’s examine the difference between the <code class="docutils literal notranslate"><span class="pre">today</span></code> variable and the <code class="docutils literal notranslate"><span class="pre">next_year</span></code> variable.</p>
+<p>We are able to obtain the difference by using the abs() function, which takes the absolute value of whatever is in the brackets.</p>
+<p>From there, assuming that we save the difference value in the form of a variable, we can take that variable and extract the <code class="docutils literal notranslate"><span class="pre">.days</span></code> property.</p>
+<p>From the following example, we aim to see the number of days are inbetween two variables, <code class="docutils literal notranslate"><span class="pre">today</span></code> and <code class="docutils literal notranslate"><span class="pre">next_year</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">difference</span>  <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">next_year</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="n">difference</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="s2">&quot;days between&quot;</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="n">next_year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 365 days between 2024-08-13 and 2025-08-13
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result is what we expected, which is 365 days.</p>
+</section>
+<section id="loading-date-using-attributes">
+<h2>Loading Date Using Attributes<a class="headerlink" href="#loading-date-using-attributes" title="Link to this heading">#</a></h2>
+<p>To create a date value from scratch, we use the <code class="docutils literal notranslate"><span class="pre">date()</span></code> function with the following format of arguments: <code class="docutils literal notranslate"><span class="pre">date(year,</span> <span class="pre">month,</span> <span class="pre">day)</span></code>.</p>
+<p>Note that currently, we use numbers to represent the value of each year, month or day argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DavidCox</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1924</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;David Cox was born on&quot;</span><span class="p">,</span> <span class="n">DavidCox</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>David Cox was born on 1924-07-15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Depending on specific situations, it may be that the date value provided to us in the form of a long string, rather than individual numbers we can assign to each of the three arguments.</p>
+<p>How can we represent this date data using strings instead?</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">date.fromisoformat()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DavidCox</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;1924-07-15&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;David Cox was born on&quot;</span><span class="p">,</span> <span class="n">DavidCox</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>David Cox was born on 1924-07-15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that for single-digit parameter values (like July as shown in the example), we need to append a 0 at the beginning.</p>
+<p>This is just simply due to how the <code class="docutils literal notranslate"><span class="pre">date.fromisoformat()</span></code> function was defined.</p>
+<p>If we don’t include it, we will get an error saying “Invalid isoformat string”, as shown in the incorrect example below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># INCORRECT</span>
+<span class="n">DavidCox</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;1924-7-15&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># INCORRECT</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">DavidCox</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;1924-7-15&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Invalid isoformat string: &#39;1924-7-15&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtaining-more-information-from-date">
+<h2>Obtaining More Information from Date<a class="headerlink" href="#obtaining-more-information-from-date" title="Link to this heading">#</a></h2>
+<p>We have seen how to get data from a date, in the form of numbers.</p>
+<p>How can we obtain information such as the weekday, which is expressed in English form?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DavidCox</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The initial gut reaction upon seeing this is thinking that David Cox’s birthday is on a Monday.</p>
+<p>But as a matter of fact, the <code class="docutils literal notranslate"><span class="pre">weekday()</span></code> method actually starts counting from 0, which represents Monday.</p>
+<p>Therefore, a value of 1 would mean that his birthday actually fell on a Tuesday.</p>
+<p>You can verify this with <a class="reference external" href="https://www.onthisday.com/date/1924/july/15">https://www.onthisday.com/date/1924/july/15</a></p>
+</section>
+<section id="working-with-datetime-objects">
+<h2>Working with datetime Objects<a class="headerlink" href="#working-with-datetime-objects" title="Link to this heading">#</a></h2>
+<p>Previously we were only working with date objects, but now let’s throw the time attribute in there as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Right now, it&#39;s&quot;</span> <span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Right now, it&#39;s 2024-08-12 22:12:05.028281
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it&#39;s the </span><span class="si">{}</span><span class="s2"> minute of the </span><span class="si">{}</span><span class="s2"> hour, of the </span><span class="si">{}</span><span class="s2"> day of the </span><span class="si">{}</span><span class="s2"> month&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+      <span class="n">now</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span>
+      <span class="n">now</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span>
+      <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">,</span>
+      <span class="n">now</span><span class="o">.</span><span class="n">month</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>it&#39;s the 12 minute of the 22 hour, of the 12 day of the 8 month
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can make our datetime object much more informative, through the form of strings, in combination with the <code class="docutils literal notranslate"><span class="pre">fromisoformat</span></code> function.</p>
+<p>Note that UTC+4 is Moscow standard time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chernobyl</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;1986-04-26 01:23:40:000+04:00&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chernobyl occured on&quot;</span><span class="p">,</span><span class="n">chernobyl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chernobyl occured on 1986-04-26 01:23:40+04:00
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, we can make this even more informative by using some format codes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chernobyl</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Chernobyl occured on %A, </span><span class="si">%d</span><span class="s2">th of %B %Y at %H:%M:%S&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chernobyl occured on Saturday, 26th of April 1986 at 01:23:40
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can get a bit more detailed than this, by representing time information using just <code class="docutils literal notranslate"><span class="pre">%X</span></code> and also including timezone information via <code class="docutils literal notranslate"><span class="pre">%Z</span></code>. In this case, MSD would represent Moscow Daylight Time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">chernobyl</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;Chernobyl occured on %A, </span><span class="si">%d</span><span class="s2">th of %B %Y at </span><span class="si">%X</span><span class="s2"> MSD(%Z)&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chernobyl occured on Saturday, 26th of April 1986 at 01:23:40 MSD(UTC+04:00)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, the information represented by <code class="docutils literal notranslate"><span class="pre">chernobyl.strftime(&quot;%Z&quot;)</span></code> could also be written as <code class="docutils literal notranslate"><span class="pre">chernobyl.tzinfo</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSD can be written alternatively as&quot;</span><span class="p">,</span> <span class="n">chernobyl</span><span class="o">.</span><span class="n">tzinfo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSD can be written alternatively as UTC+04:00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-datetimes-time-object">
+<h2>Working with datetimes’ time object<a class="headerlink" href="#working-with-datetimes-time-object" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">time</span></code> object from Python’s <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module is a versatile tool designed to handle and represent time without the complexities of a full date.</p>
+<p>It allows you to store and manipulate hours, minutes, seconds, and microseconds, making it extremely useful for situations in which one needs to focus more on time rather than dates.</p>
+<p>With methods for comparison, arithmetic, and formatting, the <code class="docutils literal notranslate"><span class="pre">time</span></code> object provides robust functionality for managing time-based data in a clear and concise manner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">time</span>
+
+
+<span class="n">my_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">my_time2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">&quot;15:33:08-07:00&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my_time is&quot;</span><span class="p">,</span> <span class="n">my_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my_time2 is&quot;</span><span class="p">,</span> <span class="n">my_time2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_time is 15:33:08
+my_time2 is 15:33:08-07:00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="converting-between-24-hour-time-to-12-hour-time">
+<h2>Converting Between 24 Hour Time to 12 Hour Time<a class="headerlink" href="#converting-between-24-hour-time-to-12-hour-time" title="Link to this heading">#</a></h2>
+<p>Let’s take the <code class="docutils literal notranslate"><span class="pre">my_time</span></code> object that we have created and try to convert between the two different formats.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">%p</span></code> is a placeholder which indicates whether we are dealing with an AM time or PM time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_time2</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I:%M %p&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>03:33 PM
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combining-date-objects-with-time-objects-to-create-a-datetime-object">
+<h2>Combining date Objects with time Objects to Create a datetime Object<a class="headerlink" href="#combining-date-objects-with-time-objects-to-create-a-datetime-object" title="Link to this heading">#</a></h2>
+<p>Combining <code class="docutils literal notranslate"><span class="pre">date</span></code> objects with <code class="docutils literal notranslate"><span class="pre">time</span></code> objects in the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module allows the user to create <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects.Such data can capture both the date and time elements in a single entity.</p>
+<p>This combination is particularly useful when one is trying to timestamp events where both the date and the exact time are crucial, such as logging activities or scheduling tasks.</p>
+<p>The resulting <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects offer extensive methods for manipulation, arithmetic, and formatting, making them indispensable for applications requiring detailed temporal data management.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">my_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">my_date</span><span class="p">,</span> <span class="n">my_time</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;my_datetime is&quot;</span><span class="p">,</span> <span class="n">my_datetime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_datetime is 2010-01-10 15:33:08
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Module12_TableOne.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Module 12: TableOne Package in Python</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings">Working with Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-date-attributes-via-basic-arithmetic">Manipulating Date Attributes via Basic Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-date-using-attributes">Loading Date Using Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-more-information-from-date">Obtaining More Information from Date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datetime-objects">Working with datetime Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-datetimes-time-object">Working with datetimes’ time object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-24-hour-time-to-12-hour-time">Converting Between 24 Hour Time to 12 Hour Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-date-objects-with-time-objects-to-create-a-datetime-object">Combining date Objects with time Objects to Create a datetime Object</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

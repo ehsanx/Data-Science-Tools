@@ -3,13 +3,22 @@
 
 format: jb-book
 root: intro
+
 chapters:
 - file: Module0_JupyterGoogleCollab
 - file: Module1_VSCode
 - file: Module2_WhyVisualizeData
 - file: Module3_VisualEncodingChannels
+- file: Module4_VisualizingDistributions
+- file: Module5_EDA
+- file: Module6_DesigningPlotsforCommunication
+- file: Module7_ChartInteractivity
 - file: Module8_FileNamesProjectOrganizationVirtualEnvironments
 - file: Module9_JupyterBook
+- file: Module10_GitUsingGithubDesktop
+- file: Module11_GithubBranches
+- file: Module12_TableOne
+- file: Module13_ExploringDateTimeData
 
 
 
