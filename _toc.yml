@@ -2,10 +2,14 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: Module0_JupyterGoogleCollab
+root: intro
 chapters:
+- file: Module0_JupyterGoogleCollab
 - file: Module1_VSCode
 - file: Module2_WhyVisualizeData
+- file: Module3_VisualEncodingChannels
 - file: Module8_FileNamesProjectOrganizationVirtualEnvironments
+- file: Module9_JupyterBook
+
 
 
