@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Module 8: File Names, Project Organization, Virtual Environments &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Module8_FileNamesProjectOrganizationVirtualEnvironments';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Module 2: Why Visualize Data?" href="Module2_WhyVisualizeData.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Module0_JupyterGoogleCollab.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Module0_JupyterGoogleCollab.html">
+                    Module 0: Jupyter & Google Collab
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Module1_VSCode.html">Module 1: VSCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module2_WhyVisualizeData.html">Module 2: Why Visualize Data?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Module 8: File Names, Project Organization, Virtual Environments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FModule8_FileNamesProjectOrganizationVirtualEnvironments.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Module8_FileNamesProjectOrganizationVirtualEnvironments.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Module 8: File Names, Project Organization, Virtual Environments</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-names">File Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-by-humans">1. Readable by Humans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-by-machines">2. Readable by Machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plays-well-with-ordering">3. Plays well with Ordering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-organization">Project Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-files-folders-in-a-standard-project-structure">The Files &amp; Folders in a Standard Project Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environments">Virtual Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-conda-environments">Managing Conda Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-conda-environment">Creating a Conda environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-a-conda-environment">Activating a Conda Environment</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="module-8-file-names-project-organization-virtual-environments">
+<h1>Module 8: File Names, Project Organization, Virtual Environments<a class="headerlink" href="#module-8-file-names-project-organization-virtual-environments" title="Link to this heading">#</a></h1>
+<p>In this module, we take a look at the importance of setting up correct file names, project layout, and the benefits of utilizing virtual environments.</p>
+<section id="file-names">
+<h2>File Names<a class="headerlink" href="#file-names" title="Link to this heading">#</a></h2>
+<p>When it comes to naming convetions, there exists a specific guideline that is to be followed.</p>
+<p>In particular, we have three main principles for effective file names.</p>
+<p>File names should be:</p>
+<ol class="arabic simple">
+<li><p>Informative to humans and easy to read</p></li>
+<li><p>Interpretable by machines</p></li>
+<li><p>Accomodate a sense of ordering</p></li>
+</ol>
+</section>
+<section id="readable-by-humans">
+<h2>1. Readable by Humans<a class="headerlink" href="#readable-by-humans" title="Link to this heading">#</a></h2>
+<p><strong>Add example here</strong></p>
+<p>Filenames offer a chance to describe a file’s contents, eliminating the need to open each file to determine its contents (which would be incredibly tedious!).</p>
+<p>Thus, it is crucial to write filenames that are easy for humans to interpret. Always aim to use filenames that reflect key aspects of the file’s content.</p>
+<p>The informative part of a filename is often referred to as a “slug.” This term is also used for the last part of a URL, intended to be relevant to the webpage’s content. A well-matched and readable slug increases the likelihood of clicks and mentions, and it aids search engines in identifying the webpage’s content.</p>
+</section>
+<section id="readable-by-machines">
+<h2>2. Readable by Machines<a class="headerlink" href="#readable-by-machines" title="Link to this heading">#</a></h2>
+<p>It is crucial to use filenames that are both machine-friendly and consistent across files with similar or related content.</p>
+<p>For example, it is important to avoid spaces and punctuation in filenames. These characters often have special meanings in programming, so filenames containing them require special handling to prevent misinterpretation by scripts or the terminal.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">figure1-scatterplot-*-vs-&amp;.png</span></code> is not an effective filename. It includes special characters, some of which (like <code class="docutils literal notranslate"><span class="pre">*</span></code>) have specific functions in the shell, making it difficult to work with and giving unwanted commands.</p>
+<p>The second name, <code class="docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">1</span> <span class="pre">scatterplot</span> <span class="pre">of</span> <span class="pre">asterisks</span> <span class="pre">vs</span> <span class="pre">ampersands.png</span></code>, might seem suitable because it’s easy to read and doesn’t appear to contain special characters. But the problem lies in the fact that it contains spaces, which can be challenging to handle in languages like Python. It is recommended to use hyphens instead of spaces to separate words.</p>
+<p>Additionally, the filename should be easy for humans to read and descriptive of the file’s contents. For example, <code class="docutils literal notranslate"><span class="pre">fig1_scatterplot-asterisks-vs-ampersands.png</span></code> addresses all these issues effectively.</p>
+</section>
+<section id="plays-well-with-ordering">
+<h2>3. Plays well with Ordering<a class="headerlink" href="#plays-well-with-ordering" title="Link to this heading">#</a></h2>
+<p>Another helpful convention to consider is using filenames that are ordered in a preferable way by default. Depending on the context, we should practice several techniques: starting filenames with something numeric, left-padding numbers with zeros or displaying files in “natural” order, and using the YYYY-MM-DD format for dates. These practices ensure that files are organized logically and can be easily sorted and accessed when needed.</p>
+<p>As an example, let’s consider three example files: <code class="docutils literal notranslate"><span class="pre">figure03.png</span></code>, <code class="docutils literal notranslate"><span class="pre">figure23.png</span></code>, and <code class="docutils literal notranslate"><span class="pre">figure3.png</span></code>.</p>
+<p>If we were to type <code class="docutils literal notranslate"><span class="pre">ls</span></code> in the terminal, the output would give</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">figure03</span><span class="o">.</span><span class="n">png</span>
+<span class="n">figure23</span><span class="o">.</span><span class="n">png</span>
+<span class="n">figure3</span><span class="o">.</span><span class="n">png</span>
+
+</pre></div>
+</div>
+<p>We can see how if we’re not careful with our naming convention,
+<code class="docutils literal notranslate"><span class="pre">figure23.png</span></code> would come before <code class="docutils literal notranslate"><span class="pre">figure3.png</span></code>, even though 3 is a smaller number than 23. This is why we use leading zeros (evident in the example where
+<code class="docutils literal notranslate"><span class="pre">figure03.png</span></code> comes before <code class="docutils literal notranslate"><span class="pre">figure23.png</span></code>).</p>
+<p>Another option is to add the -v tag in ls, making the command <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-v</span></code>. The <code class="docutils literal notranslate"><span class="pre">-v</span></code> tag represents the “natural” sort.</p>
+</section>
+<section id="project-organization">
+<h2>Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading">#</a></h2>
+<p>Earlier in this module, we discussed how using certain filename conventions makes it easier to find relevant files. When it comes to organizing an entire project, it’s even more crucial to structure files and folders in a logically accepted way. Maintaining a standard project structure offers several benefits:</p>
+<ol class="arabic simple">
+<li><p>Well-organized code is self-documenting, making it easier to understand.</p></li>
+<li><p>A new collaborator can quickly locate specific components.</p></li>
+<li><p>Your future self will find it much simpler to reproduce your own results.</p></li>
+</ol>
+<p>Therefore, it’s important to recognize that the code and data producing the end result are as significant as the final product itself. Since it’s challenging to change your approach once you’re halfway through a project, it’s best to start with a standard project structure from the very beginning.</p>
+</section>
+<section id="the-files-folders-in-a-standard-project-structure">
+<h2>The Files &amp; Folders in a Standard Project Structure<a class="headerlink" href="#the-files-folders-in-a-standard-project-structure" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file contains a list of files that should not be committed to your repository.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file provides general explanations about the project.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file details the packages and libraries needed to reproduce the computational environment.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory is designated for raw and processed data. Since data typically doesn’t require version control, this folder can be included in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory holds project documentation, which can sometimes be generated automatically.</p>
+<p>Jupyter notebook files, used for exploration and communication, are stored in the <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code> directory.</p>
+<p>Code files are usually kept in the <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory, which can include subfolders as necessary.</p>
+</section>
+<section id="virtual-environments">
+<h2>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">#</a></h2>
+<p>To put it simply, virtual environments allow us to use different versions of packages on the same computer, instead of us having to uninstall then reinstall different versions of a particular package.</p>
+<p>The majority of the time, users work on many projects on their computer. This means the computational environments in which the projects operate within must be isolated from each other.</p>
+<p>With these isolated environments, allows for the pathway of reproducibility.</p>
+</section>
+<section id="conda">
+<h2>Conda<a class="headerlink" href="#conda" title="Link to this heading">#</a></h2>
+<p>To create and use these virtual environments, we have a few options. <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>, <code class="docutils literal notranslate"><span class="pre">venv</span></code>, <code class="docutils literal notranslate"><span class="pre">pipenv</span></code>, and <code class="docutils literal notranslate"><span class="pre">conda</span></code> are just some notable examples.</p>
+<p>Conda in particular is a very popular open source package &amp; environment management system for python.</p>
+</section>
+<section id="managing-conda-environments">
+<h2>Managing Conda Environments<a class="headerlink" href="#managing-conda-environments" title="Link to this heading">#</a></h2>
+<p>A Conda environment is a collection of packages that can be used for one or multiple projects. By using Conda environments, you can create an isolated Python environment tailored to your specific project.</p>
+<p>Major Benefits of Using Conda Environments:</p>
+<ul class="simple">
+<li><p>Reproducibility: Ensures that others can reproduce your project by specifying the exact package versions you used, making it easy for them to install the same versions.</p></li>
+<li><p>Manage Different Versions: Allows you to handle different versions of the same package across projects by installing them in separate environments.</p></li>
+<li><p>Create Isolated Environments: Enables you to experiment with new packages without affecting the packages used for your data analysis, thus avoiding potential issues.</p></li>
+</ul>
+</section>
+<section id="creating-a-conda-environment">
+<h2>Creating a Conda environment<a class="headerlink" href="#creating-a-conda-environment" title="Link to this heading">#</a></h2>
+<p>There are two different ways of setting up a Conda environment.</p>
+<p>The first method is to create the environment and install packages manually. These packages can be installed either at the time of environment creation or after creating the environment.</p>
+<p>The second method is to create the environment through a file in <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> format.</p>
+<p>Let’s take a look at an example code which creates a new environment called <code class="docutils literal notranslate"><span class="pre">test_env</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">test_env</span></code></p>
+<p>We can create a Conda environment named <code class="docutils literal notranslate"><span class="pre">test_env</span></code> by running the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">test_env</span></code>. When you see the prompt <code class="docutils literal notranslate"><span class="pre">Proceed</span> <span class="pre">([y]/n)?</span></code>, press Enter to continue.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-n</span></code> in the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">test_env</span></code> stands for “name.” It is used to specify the name of the new Conda environment you want to create. In this case, <code class="docutils literal notranslate"><span class="pre">test_env</span></code> is the name given to the new environment.</p>
+<p>It’s also helpful to specify additional details when creating the environment, such as the channel for installing packages, the Python version, and a list of packages to include.</p>
+<p>In the example below, I am creating the test_env environment that uses Python 3.9, the latest version of jupyterlab, and pandas version 1.3.0.</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">test_env</span> <span class="pre">python=3.9</span> <span class="pre">jupyterlab</span> <span class="pre">pandas=1.3.0</span></code></p>
+</section>
+<section id="activating-a-conda-environment">
+<h2>Activating a Conda Environment<a class="headerlink" href="#activating-a-conda-environment" title="Link to this heading">#</a></h2>
+<p>The default Conda environment is the base environment, which includes only the essential packages. In this environment, the shell’s prompt string is prefixed with <code class="docutils literal notranslate"><span class="pre">(base)</span></code>.</p>
+<p>To activate the new environment we just created, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">test_env</span></code> (and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> to deactivate it).</p>
+<p>Notice how the prompt string prefix in your shell changes from <code class="docutils literal notranslate"><span class="pre">(base)</span></code> to <code class="docutils literal notranslate"><span class="pre">(test_env)</span></code>, indicating that the <code class="docutils literal notranslate"><span class="pre">test_env</span></code> environment is now active.</p>
+<p>To view all your environments, type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>.</p>
+<p>Lastly, the environment with an asterik (*) next to it denotes the current active one.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Module2_WhyVisualizeData.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Module 2: Why Visualize Data?</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-names">File Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-by-humans">1. Readable by Humans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-by-machines">2. Readable by Machines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plays-well-with-ordering">3. Plays well with Ordering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-organization">Project Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-files-folders-in-a-standard-project-structure">The Files &amp; Folders in a Standard Project Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environments">Virtual Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conda">Conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-conda-environments">Managing Conda Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-conda-environment">Creating a Conda environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activating-a-conda-environment">Activating a Conda Environment</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
