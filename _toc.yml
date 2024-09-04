@@ -1,24 +1,25 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 
-format: jb-book
-root: intro
+format: jb-book  # Defines the structure format of the book
 
+# Main introductory page
+root: intro  # Root file (usually an introduction page)
+
+# List of chapters or sections in the book
 chapters:
-- file: Module0_JupyterGoogleCollab
-- file: Module1_VSCode
-- file: Module2_WhyVisualizeData
-- file: Module3_VisualEncodingChannels
-- file: Module4_VisualizingDistributions
-- file: Module5_EDA
-- file: Module6_DesigningPlotsforCommunication
-- file: Module7_ChartInteractivity
-- file: Module8_FileNamesProjectOrganizationVirtualEnvironments
-- file: Module9_JupyterBook
-- file: Module10_GitUsingGithubDesktop
-- file: Module11_GithubBranches
-- file: Module12_TableOne
-- file: Module13_ExploringDateTimeData
-
-
-
+  - file: notebooks  # A Jupyter Notebook or Markdown file in your project
+  - file: Module0_JupyterGoogleCollab
+  - file: Module1_VSCode
+  - file: Module2_WhyVisualizeData
+  - file: Module3_VisualEncodingChannels
+  - file: Module4_VisualizingDistributions
+  - file: Module5_EDA
+  - file: Module6_DesigningPlotsforCommunication
+  - file: Module7_ChartInteractivity
+  - file: Module8_FileNamesProjectOrganization
+  - file: Module9_JupyterBook
+  - file: Module10_GitUsingGithubDesktop
+  - file: Module11_GithubBranches
+  - file: Module12_TableOne
+  - file: Module13_ExploringDateTimeData
