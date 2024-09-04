@@ -1,53 +1,31 @@
 # Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
+title: "From Data to Insights: Tools for Data Science with Python"
+author: "HDS team"
+logo: "logo.png"  # Ensure this file is in the correct location
 
-# Basic information about your book
-title: "My Sample Book"
-author: "The Jupyter Book Community"
-logo: "logo.png"  # Path to the logo file in your repository
-
-# Configuration for executing notebooks
+# Disable notebook execution temporarily
 execute:
-  execute_notebooks: force  # Force re-execution of notebooks on build
+  execute_notebooks: "off"
 
-# Latex settings for PDF export
-latex:
-  latex_documents:
-    targetname: book.tex  # Name of the output file for PDF builds
-
-# Citation management
-bibtex_bibfiles:
-  - references.bib  # Path to the BibTeX file for citations
-
-# Repository settings for linking to your GitHub repository
-repository:
-  url: https://github.com/ehsanx/Data-Science-Tools  # URL of your GitHub repository
-  path_to_book: docs  # Path to your book files in the repository (set to "docs" folder)
-  branch: main  # The branch to use for GitHub Pages (main by default)
-
-# HTML-specific settings to enhance the look and usability of the book
+# HTML-specific settings
 html:
-  baseurl: /Data-Science-Tools  # Base URL for your site, remove trailing "/"
-  use_issues_button: true  # Show a button linking to GitHub issues
-  use_repository_button: true  # Show a button linking to your repository
-  use_edit_page_button: true  # Show an "edit this page" button for each page
+  baseurl: /Data-Science-Tools
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
   theme:
-    name: "sphinx_book_theme"  # Theme used for the book
-    navbar_align: "content"  # Align the navbar items with the content
-    logo_only: true  # Display only the logo, no text
-    search_bar_position: "navbar"  # Position of the search bar in the navigation bar
-    extra_navbar: "<p>Your custom footer text here.</p>"  # Add custom text in the footer
+    name: "sphinx_book_theme"
+  # Other customizations can be added later
 
-# Build settings: Define where the built files will be saved
+# Build settings
 build:
-  path_output: docs  # Set output directory to "docs" for GitHub Pages deployment
+  path_output: docs  # Ensure docs is used for GitHub Pages
 
-# Additional custom options
-# Show a table of contents on the left side of each page
+# Table of contents
 toc:
-  number_sections: true  # Automatically number sections
-  nav_links:  # Links to external resources in the top navigation
-    - title: "About"
-      url: "https://github.com/ehsanx"
-    - title: "Contribute"
-      url: "https://github.com/ehsanx/Data-Science-Tools/issues"
+  number_sections: true
+
+repository:
+  url: https://github.com/ehsanx/Data-Science-Tools  # Your GitHub repository URL
+  path_to_book: docs  # Path to the book in the repository, typically 'docs'
+  branch: main  # The branch where the book is hosted (usually 'main')
