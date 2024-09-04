@@ -8,7 +8,6 @@ root: intro  # Root file (usually an introduction page)
 
 # List of chapters or sections in the book
 chapters:
-  - file: notebooks  # A Jupyter Notebook or Markdown file in your project
   - file: Module0_JupyterGoogleCollab
   - file: Module1_VSCode
   - file: Module2_WhyVisualizeData
@@ -17,7 +16,7 @@ chapters:
   - file: Module5_EDA
   - file: Module6_DesigningPlotsforCommunication
   - file: Module7_ChartInteractivity
-  - file: Module8_FileNamesProjectOrganization
+  - file: Module8_FileNamesProjectOrganizationVirtualEnvironments
   - file: Module9_JupyterBook
   - file: Module10_GitUsingGithubDesktop
   - file: Module11_GithubBranches

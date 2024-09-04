@@ -23,10 +23,11 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/ehsanx/Data-Science-Tools  # URL of your GitHub repository
   path_to_book: docs  # Path to your book files in the repository (set to "docs" folder)
-  branch: main  # The branch to use for GitHub Pages (default is "main")
+  branch: main  # The branch to use for GitHub Pages (main by default)
 
 # HTML-specific settings to enhance the look and usability of the book
 html:
+  baseurl: /Data-Science-Tools  # Base URL for your site, remove trailing "/"
   use_issues_button: true  # Show a button linking to GitHub issues
   use_repository_button: true  # Show a button linking to your repository
   use_edit_page_button: true  # Show an "edit this page" button for each page

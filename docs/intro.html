@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; My Sample Book</title>
+    <title>Welcome to the Data-Science-Tools Guide &#8212; My Sample Book</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,12 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="canonical" href="/Data-Science-Tools/intro.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="next" title="Module 0: Jupyter &amp; Google Collab" href="Module0_JupyterGoogleCollab.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,12 +177,11 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    Welcome to the Data-Science-Tools Guide
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module0_JupyterGoogleCollab.html">Module 0: Jupyter &amp; Google Collab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module1_VSCode.html">Module 1: VSCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_WhyVisualizeData.html">Module 2: Why Visualize Data?</a></li>
@@ -192,6 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Module5_EDA.html">Module 5: Exploratory Data Analysis and 2D Categorical Distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module6_DesigningPlotsforCommunication.html">Module 6: Designing Plots for Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module7_ChartInteractivity.html">Module 7: Chart Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module8_FileNamesProjectOrganizationVirtualEnvironments.html">Module 8: File Names, Project Organization, Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module9_JupyterBook.html">Module 9: Jupyter Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module10_GitUsingGithubDesktop.html">Module 10: Git Using Github Desktop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module11_GithubBranches.html">Module 11: Github Branches</a></li>
@@ -386,7 +385,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -397,11 +398,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Welcome to the Data-Science-Tools Guide</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents-overview">Table of Contents Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-guide">How to Use This Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -411,16 +422,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-the-data-science-tools-guide">
+<h1>Welcome to the <strong>Data-Science-Tools</strong> Guide<a class="headerlink" href="#welcome-to-the-data-science-tools-guide" title="Link to this heading">#</a></h1>
+<p>This book serves as a comprehensive resource for learning essential tools and techniques used in data science, <strong>entirely written in Python</strong>. Whether you are new to programming or an experienced data scientist looking to enhance your skills, this guide covers a wide range of topics, from foundational concepts to advanced data visualization techniques. Each module is carefully designed to build your proficiency in various tools and workflows that are crucial for effective data science projects.</p>
+<section id="table-of-contents-overview">
+<h2>Table of Contents Overview<a class="headerlink" href="#table-of-contents-overview" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Module 0: Jupyter &amp; Google Collab</strong><br />
+Get started with two of the most popular environments for running Python code: Jupyter notebooks and Google Colab. Learn how to set up your environment and run code interactively.</p></li>
+<li><p><strong>Module 1: VSCode</strong><br />
+Explore Visual Studio Code (VSCode), a powerful and lightweight code editor. This module will guide you through setting up VSCode for data science workflows, including useful extensions for Python and data analysis.</p></li>
+<li><p><strong>Module 2: Why Visualize Data?</strong><br />
+Understand the importance of data visualization and how it plays a crucial role in exploring and communicating data insights effectively.</p></li>
+<li><p><strong>Module 3: Visual Encoding Channels</strong><br />
+Learn about visual encoding channels—such as position, size, shape, and color—that form the building blocks for designing effective and insightful visualizations.</p></li>
+<li><p><strong>Module 4: Visualizing Distributions</strong><br />
+Dive into the art and science of visualizing distributions to understand patterns, variability, and trends in your data.</p></li>
+<li><p><strong>Module 5: Exploratory Data Analysis and 2D Categorical Distributions</strong><br />
+Master the techniques of Exploratory Data Analysis (EDA) and learn how to visualize relationships between two categorical variables.</p></li>
+<li><p><strong>Module 6: Designing Plots for Communication</strong><br />
+Data visualization is not only about exploration; it’s also about communication. This module will teach you how to design plots that communicate your findings clearly to various audiences.</p></li>
+<li><p><strong>Module 7: Chart Interactivity</strong><br />
+Add interactivity to your charts to engage users and allow them to explore the data on their own. Learn how to create interactive plots using tools like Plotly and Bokeh.</p></li>
+<li><p><strong>Module 8: File Names, Project Organization, Virtual Environments</strong><br />
+Effective project organization is critical for collaboration and scalability. This module covers best practices for naming files, organizing projects, and managing Python environments.</p></li>
+<li><p><strong>Module 9: Jupyter Book</strong><br />
+Learn how to create beautiful, publication-quality books and documentation from Jupyter notebooks using Jupyter Book.</p></li>
+<li><p><strong>Module 10: Git Using Github Desktop</strong><br />
+Version control is essential for collaborative data science projects. This module introduces Git and GitHub Desktop for managing changes and collaborating on code.</p></li>
+<li><p><strong>Module 11: Github Branches</strong><br />
+Understand how to use GitHub branches for managing different versions of your project, implementing features, and fixing bugs without affecting the main codebase.</p></li>
+<li><p><strong>Module 12: TableOne Package in Python</strong><br />
+Learn how to use the <code class="docutils literal notranslate"><span class="pre">TableOne</span></code> package in Python for generating summary tables that are commonly used in medical and clinical research.</p></li>
+<li><p><strong>Module 13: Exploring Date/Time Data with datetime</strong><br />
+Handling date and time data can be tricky. This module covers the essentials of working with date and time data using Python’s <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module.</p></li>
+</ul>
+</section>
+<section id="how-to-use-this-guide">
+<h2>How to Use This Guide<a class="headerlink" href="#how-to-use-this-guide" title="Link to this heading">#</a></h2>
+<p>Each module is self-contained and can be followed in sequence or individually, depending on your current level of expertise and interest. You can jump directly to any module and start learning.</p>
+<p>Whether you’re aiming to sharpen your skills or deepen your understanding of data science tools, this guide provides valuable insights and practical examples, all using Python. We hope you find these resources helpful as you continue your journey in data science!</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module0_JupyterGoogleCollab.html">Module 0: Jupyter &amp; Google Collab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module1_VSCode.html">Module 1: VSCode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module2_WhyVisualizeData.html">Module 2: Why Visualize Data?</a></li>
@@ -429,6 +472,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
 <li class="toctree-l1"><a class="reference internal" href="Module5_EDA.html">Module 5: Exploratory Data Analysis and 2D Categorical Distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module6_DesigningPlotsforCommunication.html">Module 6: Designing Plots for Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module7_ChartInteractivity.html">Module 7: Chart Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Module8_FileNamesProjectOrganizationVirtualEnvironments.html">Module 8: File Names, Project Organization, Virtual Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module9_JupyterBook.html">Module 9: Jupyter Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module10_GitUsingGithubDesktop.html">Module 10: Git Using Github Desktop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Module11_GithubBranches.html">Module 11: Github Branches</a></li>
@@ -436,6 +480,12 @@ It does not go in-depth into any particular topic - check out <a class="referenc
 <li class="toctree-l1"><a class="reference internal" href="Module13_ExploringDateTimeData.html">Module 13: Exploring Date/Time Data with datetime</a></li>
 </ul>
 </div>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>This project was made possible through funding from the <strong>Natural Sciences and Engineering Research Council of Canada (NSERC)</strong> and the <strong>Work Learn Program</strong> at the <strong>University of British Columbia (UBC)</strong>.</p>
+<p><strong>Dr. Ehsan Karim</strong> mentored and guided the development of this project. <strong>Eric Fu</strong> served as the Research Assistant (RA) for this project to develop the drafts.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -469,11 +519,11 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="notebooks.html"
+       href="Module0_JupyterGoogleCollab.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Module 0: Jupyter &amp; Google Collab</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -483,6 +533,23 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents-overview">Table of Contents Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-guide">How to Use This Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
